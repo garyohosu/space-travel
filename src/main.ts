@@ -3,6 +3,10 @@ import { beginVoyage, createInitialState } from './state/gameState';
 import { loadSaveData } from './save/storage';
 import './ui/styles.css';
 
+// innerHTML below renders only fixed template strings and internally computed numbers.
+// Never interpolate user-entered text (player names, etc.) or server/ranking data (SEC-005)
+// into these templates without escaping — doing so would allow HTML/script injection.
+
 const app = document.querySelector<HTMLDivElement>('#app');
 if (!app) throw new Error('App root is missing');
 const root = app;
